@@ -1,0 +1,1 @@
+﻿Get-Service wuauserv | Set-Service -StartupType Disabled

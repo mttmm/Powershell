@@ -1,0 +1,1 @@
+﻿Get-VM -ComputerName Ton-Host-01 | Out-GridView -Title "Select one" -PassThru | Move-VM -Destinationhost ACE-HOST-03 -DestinationStoragePath D:\VM\TONRDSHBAL01

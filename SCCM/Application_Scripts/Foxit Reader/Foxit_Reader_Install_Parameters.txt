@@ -1,0 +1,7 @@
+msiexec /i "EnterpriseFoxitReader7220929_enu.msi" /q
+
+msiexec /x "EnterpriseFoxitReader7220929_enu.msi" /q CLEAN="1"
+
+msiexec /i "EnterpriseFoxitReader722_0929_enu.msi" /q MAKEDEFAULT="0" DESKTOP_SHORTCUT="0" AUTO_UPDATE="0" LAUNCHCHECKDEFAULT="0" ADDLOCAL="FX_PDFVIEWER,FX_SPELLCHECK"
+
+"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Foxit Reader\Activate Plugins.lnk"  - This is the shortcut that is created in the programs  menu upon install
