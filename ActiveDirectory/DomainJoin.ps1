@@ -1,4 +1,4 @@
-﻿function Add-AcmeComputer {
+﻿function Add-DomainComputer {
     param(
         [string[]]$ComputerName,
         [string]$Domain,
@@ -10,7 +10,7 @@
             Write-Warning "Could not ping computer [$computer]"
         } else {
             Write-Information "[$computer] is being added to domain [$Domain]..."
-            Add-Computer -ComputerName $computer -Domain $Domain -Restart
+            Add-Computer -ComputerName $computer -Domain $Domain -Restart -Force
             if ($Wait.IsPresent) {
                 ## Give it some time to go offline
                 while (Test-Connection -ComputerName $computer -Quiet -Count 1) {
