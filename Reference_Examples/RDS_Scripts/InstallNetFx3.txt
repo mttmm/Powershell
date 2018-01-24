@@ -1,0 +1,1 @@
+DISM /online /enable-feature /featurename:NetFx3 /All /source:G:\sources\sxs\ 
