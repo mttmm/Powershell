@@ -1,1 +1,0 @@
-get-aduser -filter * -Properties whencreated,LastLogonDate,logoncount | select Name,whencreated,Lastlogondate,logoncount | sort name | Export-csv -Path c:\demousers.csv -append -NoTypeInformation
