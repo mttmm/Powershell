@@ -138,6 +138,7 @@ Try {
 		
 		## <Perform Installation tasks here>
 		
+						#"$configToolkitLogDir\$installName.log"	
 		
 		##*===============================================
 		##* POST-INSTALLATION

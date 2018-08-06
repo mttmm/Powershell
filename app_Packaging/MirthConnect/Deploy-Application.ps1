@@ -61,14 +61,14 @@ Try {
 	##* VARIABLE DECLARATION
 	##*===============================================
 	## Variables: Application
-	[string]$appVendor = 'Postgres'
-	[string]$appName = 'pgadmin'
-	[string]$appVersion = '4v3.1'
+	[string]$appVendor = 'Mirth'
+	[string]$appName = 'Mirth Connect Shortcuts'
+	[string]$appVersion = '1'
 	[string]$appArch = 'x86'
 	[string]$appLang = 'EN'
 	[string]$appRevision = '01'
 	[string]$appScriptVersion = '1.0.0'
-	[string]$appScriptDate = '07/23/2018'
+	[string]$appScriptDate = '08/06/2018'
 	[string]$appScriptAuthor = 'Matt Maas'
 	##*===============================================
 	## Variables: Install Titles (Only set here to override defaults set by the toolkit)
@@ -123,7 +123,8 @@ Try {
 		#Show-InstallationProgress
 		
 		## <Perform Pre-Installation tasks here>
-
+		
+		
 		##*===============================================
 		##* INSTALLATION 
 		##*===============================================
@@ -136,8 +137,10 @@ Try {
 		#}
 		
 		## <Perform Installation tasks here>
-        Execute-Process -Path "pgadmin4-3.1-x86.exe" -Parameters "/VERYSILENT /NORESTART /SUPPRESSMSGBOXES"
 		
+			Copy-File -Path "$dirsupportfiles\exception.sites" -Destination "$envUserProfile\AppData\LocalLow\Sun\Java\Deployment\security\exception.sites"
+			Copy-file -Path "$dirfiles\Mirth.ico" -Destination "$envSystemDrive\RP_Source\Icons"
+			Copy-File -Path	"$dirFiles\*.lnk" -Destination $envCommonDesktop
 		##*===============================================
 		##* POST-INSTALLATION
 		##*===============================================
@@ -176,7 +179,7 @@ Try {
 		#}
 		
 		# <Perform Uninstallation tasks here>
-        Execute-Process "C:\Program Files (x86)\pgAdmin 4\v3\unins000.exe" -Parameters "/VERYSILENT"
+		
 		
 		##*===============================================
 		##* POST-UNINSTALLATION
