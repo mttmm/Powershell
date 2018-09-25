@@ -1,0 +1,79 @@
+﻿Sushant S (9/8/2018, 5:41:18 PM): Hi Matt Maas. Thank you for contacting Dell Technical Support. My name is Sushant. Please allow me a moment to review your case details. 
+Sushant S (9/8/2018, 5:41:29 PM): How are you doing today? 
+Me (9/8/2018, 5:41:41 PM): I'm okay, thanks 
+Me (9/8/2018, 5:41:57 PM): This notbook will not boot past the white DELL logo 
+Sushant S (9/8/2018, 5:42:37 PM): Glad to know you are doing well. 
+Me (9/8/2018, 5:42:55 PM): there is usually a spinning circle icon below the DELL logo but that isn't showing anymore....I have left it at the startup logo for over an hour and there is no indication that it is going to boot to windows 
+Sushant S (9/8/2018, 5:43:11 PM): From what I understand, the issue with your system is it does not complete POST. Is that correct? 
+Me (9/8/2018, 5:43:17 PM): correct 
+Me (9/8/2018, 5:43:30 PM): can't even get an option for booting to bios 
+Sushant S (9/8/2018, 5:44:05 PM): Thank you for the additonal information. 
+Sushant S (9/8/2018, 5:44:05 PM): Can you confirm that the system you need support with is INSP 3168 with Service Tag : 7TW7VJ2? 
+Me (9/8/2018, 5:44:40 PM): That's correct 
+Sushant S (9/8/2018, 5:44:44 PM): Thank you for your confirmation. Your system still has an active Hardware Warranty valid until 11/29/2018. 
+Sushant S (9/8/2018, 5:44:57 PM): If we get disconnected from this chat, can I reach you at (419) 266-4534 or email you at mmaas21@gmail.com? 
+Me (9/8/2018, 5:45:03 PM): Yes 
+Sushant S (9/8/2018, 5:45:06 PM): Also, could you confirm the best time to reach you along with your time zone? 
+Me (9/8/2018, 5:45:25 PM): I am EST, and you can reach me any time during the day 
+Sushant S (9/8/2018, 5:45:49 PM): In order to identify and isolate the issue accurately, I'd like to ask you a few questions about your system. 
+Me (9/8/2018, 5:46:08 PM): alright, ask away 
+Sushant S (9/8/2018, 5:46:49 PM): Have you tried running ePSA test to examine if there is any hardware fauilure like hard drive? 
+Me (9/8/2018, 5:47:14 PM): not sure how I would do that test 
+Sushant S (9/8/2018, 5:48:11 PM): I will share the steps with you. 
+Sushant S (9/8/2018, 5:48:16 PM): Steps to perform Pre-Boot System Assessment (PSA) 
+
+ A. Please turn off the computer. Press and hold the <Fn> key on your keyboard and press the power button to power the computer on. Then release both buttons. 
+ B. The PSA diagnostics sequence begins. Please take note of any Error-Codes & Validation-Codes it may generate. 
+Sushant S (9/8/2018, 5:48:31 PM): Please perform the test and help me with the results. 
+Me (9/8/2018, 5:50:02 PM): I do not get past the DELL logo 
+Sushant S (9/8/2018, 5:52:03 PM): Thank you for the details. 
+Sushant S (9/8/2018, 5:52:46 PM): Does the system stuck at Dell logo? 
+Me (9/8/2018, 5:53:08 PM): Yes 
+Sushant S (9/8/2018, 5:54:19 PM): Please Check if the diagnostic code indicated by the beeps from the system. 
+Sushant S (9/8/2018, 5:54:23 PM): When you switch on your computer, the basic input/output system (BIOS) first detects the internal hardware configuration. It then performs the power-on-self-test (POST). The POST executes several diagnostics tests that check the basic functionality of the system board, CPU, Power Supply Unit, RAM, I/O Bus Controller, keyboard, and video components. If the POST detects any problems the power button will flash or the system will provide an beep code.  The pattern is 1 to 7 flashes or beeps followed by a short pause, then it repeats. 
+Sushant S (9/8/2018, 5:54:35 PM): I will share an example with you. 
+Sushant S (9/8/2018, 5:54:36 PM): Example: Flash/Beep code 2 would be presented by 2 flashes or beeps, short pause, and 2 flashes or beeps again.  The system will continue this pattern until the computer is turned off. 
+Me (9/8/2018, 5:55:23 PM): Nothing is beeping or flashing 
+Sushant S (9/8/2018, 5:57:10 PM): I hope there is no external peripheral devices connected to the system. 
+Sushant S (9/8/2018, 5:57:13 PM): Am I right? 
+Me (9/8/2018, 5:57:48 PM): That is correct 
+Sushant S (9/8/2018, 5:58:54 PM): Based on the symptoms & troubleshooting results, it is evident that components internal to your system need to be replaced. Since your system has Return-to-Depot warranty, it needs to be sent to our Repair Center and the turn-around-time for the repair process would be 7-10 Business days. Let me set it up for you, Okay? 
+Me (9/8/2018, 5:59:19 PM): Okay 
+Sushant S (9/8/2018, 5:59:25 PM): Please confirm that there is No Physical-Damage to the System. Physical damage outside of a Complete Care/Accidental Damage contract (usually caused by drop, fall or liquid spills) is not covered under the System s Limited Hardware Warranty. If physical damage is discovered on the system, there may be an additional cost incurred by the end user in order to complete the service. You still have the option to decline the fee if you wish and have the system sent back to you unrepaired. 
+Sushant S (9/8/2018, 5:59:29 PM): Can you please provide
+
+1) Name and Phone Number (preferably of the person who will send the System to Depot) &
+2) Complete Address including Zip-Code where System needs to be picked-up from & delivered to after repairs? 
+Sushant S (9/8/2018, 5:59:35 PM): Do you have an alternate phone number? Would you also like to list an alternate contact person? 
+Me (9/8/2018, 6:01:20 PM): The sender's name will be Kathy Lammers 419-890-6564 - cell 
+Me (9/8/2018, 6:01:54 PM): Address: 14674 Road K-14 Ottawa, OH 45875 
+Sushant S (9/8/2018, 6:03:55 PM): Thank you for the details/ 
+Sushant S (9/8/2018, 6:03:55 PM): Given below are a few disclaimers pertaining to the dispatch I'm setting up for you today. Request you to acknowledge the same. 
+Sushant S (9/8/2018, 6:04:01 PM): Please be aware that in order to make sure that the appropriate system is being serviced, the Depot technician will be confirming the service tag before beginning repairs. 
+Me (9/8/2018, 6:04:49 PM): acknowledged 
+Sushant S (9/8/2018, 6:04:58 PM): You will receive Empty-Box with packing material & a return prepaid waybill within 2-3 Business days. Please ship the System back to us at the earliest to enable quick service of your product. 
+Sushant S (9/8/2018, 6:05:02 PM): Just to set your expectations, the Repair may require for the Hard-Drive to be reimaged or for the Operating System to be reinstalled. If you do Not wish to have the Hard-Drive reimaged, you can put a note on the Repair form or you can remove the Hard-Drive before sending the system in. Otherwise, please be informed that Dell is not liable for the data loss during the process of repair. 
+Sushant S (9/8/2018, 6:05:13 PM): Do verify the following before shipping the Box
+
+1. Defective unit is included
+2. Battery is included
+3. Dell AC Adapter (Charger) is included
+4. Back up any personal data (If Applicable)
+5. Remove any SD/Memory Cards in the unit.
+6. Remove any external peripherals. 
+Me (9/8/2018, 6:06:17 PM): Will do 
+Sushant S (9/8/2018, 6:07:04 PM): For reference, your Service Request # is 979430957. You will also receive a transcript of our chat conversation via email. 
+Sushant S (9/8/2018, 6:07:06 PM): I'll send the dispatch information over email. We'll track your dispatch and email you status notifications timely. Does that work for you? 
+Me (9/8/2018, 6:07:19 PM): Yes, that works. Thank you 
+Sushant S (9/8/2018, 6:07:36 PM): I appreciate your commitment to resolve this issue and your patience with me. You made my job a lot easier. Thank you so much. 
+Sushant S (9/8/2018, 6:07:39 PM): I appreciate your commitment to resolve this issue and your patience with me. You made my job a lot easier. Thank you so much. 
+Sushant S (9/8/2018, 6:07:44 PM): In the future, you may run the Diagnostics test beforehand and contact us with the error code. Based on the results, we’ll be able to setup a dispatch promptly and save you time. 
+Sushant S (9/8/2018, 6:07:46 PM): v 
+Sushant S (9/8/2018, 6:07:47 PM): Matt, how was your overall experience with Dell? Is there anything that we could have done better to improve our services? 
+Me (9/8/2018, 6:08:02 PM): Everything was great.  Thank you 
+Sushant S (9/8/2018, 6:08:04 PM): Matt, earning and keeping your trust is at the center of everything we do at Dell. Thanks for your continued support. 
+Sushant S (9/8/2018, 6:08:05 PM): I'm going to send you a summary email at the end of our chat. It'll contain your Service Request # and other vital information pertaining to today's conversation.
+Please reply to that email and my team will contact you. That way we can pick up where we left off and save you a lot of time and trouble. 
+Sushant S (9/8/2018, 6:08:09 PM): You can always get support for your PC including System & Warranty info, Diagnostics, Drivers & Downloads, Dispatch status, etc. at www.Dell.com/Support. 
+Sushant S (9/8/2018, 6:08:12 PM): I hope I have addressed all your concerns regarding the system. Is there anything else I can assist you with today? 
+Me (9/8/2018, 6:08:29 PM): That's all, thanks again 
