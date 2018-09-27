@@ -1,5 +1,5 @@
 $vcenterservers = "crcvcsa01.columbusrad.local"
-$vcenterusername = 'administrator@vsphere.local'
+$vcenterusername = 'administrator@crcvsphere.local'
 $vcenteruserpwd = '..471BroadE#!!'
 $alarmfile = import-csv "C:\githubrepo\Powershell\VMware\Alarms\vsphere65-alarms.csv"
 $AlertEmailRecipients = @("itinfrastructure@radpartners.com")
