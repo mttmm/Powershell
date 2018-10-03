@@ -25,10 +25,10 @@ Get-WinEvent -FilterHashtable @{
 }
 #endregion
 #region Computers to search
-$computername = 'crcmgmt01', 'crcnms01'
+$computername = 'crccpapp01','crccpappfo01'
 ForEach ($computer in $computername) {
     Get-WinEvent -ComputerName $computer -FilterHashtable @{
-        Logname = 'system'
+        Logname = 'Application'
         Level   = 1, 2 #1 Critical, 2 Error, 3 Warning, 4 Information
     }
 }
