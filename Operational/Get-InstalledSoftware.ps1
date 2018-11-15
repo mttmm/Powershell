@@ -1,5 +1,5 @@
 ﻿function Get-InstalledSoftware {
-<#
+    <#
 .SYNOPSIS
     Pull software details from registry on one or more computers
 
@@ -37,43 +37,38 @@
     param (
         [Parameter(
             Position = 0,
-            ValueFromPipeline=$true,
-            ValueFromPipelineByPropertyName=$true, 
-            ValueFromRemainingArguments=$false
+            ValueFromPipeline = $true,
+            ValueFromPipelineByPropertyName = $true,
+            ValueFromRemainingArguments = $false
         )]
         [ValidateNotNullOrEmpty()]
-        [Alias('CN','__SERVER','Server','Computer')]
-            [string[]]$ComputerName = $env:computername,
-        
-            [string]$DisplayName = $null,
-        
-            [string]$Publisher = $null
+        [Alias('CN', '__SERVER', 'Server', 'Computer')]
+        [string[]]$ComputerName = $env:computername,
+
+        [string]$DisplayName = $null,
+
+        [string]$Publisher = $null
     )
 
-    Begin
-    {
-        
+    Begin {
+
         #define uninstall keys to cover 32 and 64 bit operating systems.
         #This will yeild only 32 bit software and double entries on 64 bit systems running 32 bit PowerShell
-            $UninstallKeys = "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall",
-                "SOFTWARE\\Wow6432Node\\Microsoft\\Windows\\CurrentVersion\\Uninstall"
+        $UninstallKeys = "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall",
+        "SOFTWARE\\Wow6432Node\\Microsoft\\Windows\\CurrentVersion\\Uninstall"
 
     }
 
-    Process
-    {
+    Process {
 
         #Loop through each provided computer.  Provide a label for error handling to continue with the next computer.
-        :computerLoop foreach($computer in $computername)
-        {
-            
-            Try
-            {
+        :computerLoop foreach ($computer in $computername) {
+
+            Try {
                 #Attempt to connect to the localmachine hive of the specified computer
-                $reg=[microsoft.win32.registrykey]::OpenRemoteBaseKey('LocalMachine',$computer)
+                $reg = [microsoft.win32.registrykey]::OpenRemoteBaseKey('LocalMachine', $computer)
             }
-            Catch
-            {
+            Catch {
                 #Skip to the next computer if we can't talk to this one
                 Write-Error "Error:  Could not open LocalMachine hive on $computer`: $_"
                 Write-Verbose "Check Connectivity, permissions, and Remote Registry service for '$computer'"
@@ -81,85 +76,77 @@
             }
 
             #Loop through the 32 bit and 64 bit registry keys
-            foreach($uninstallKey in $UninstallKeys)
-            {
-            
-                Try
-                {
+            foreach ($uninstallKey in $UninstallKeys) {
+
+                Try {
                     #Open the Uninstall key
-                        $regkey = $null
-                        $regkey = $reg.OpenSubKey($UninstallKey)
+                    $regkey = $null
+                    $regkey = $reg.OpenSubKey($UninstallKey)
 
                     #If the reg key exists...
-                    if($regkey)
-                    {    
-                                        
+                    if ($regkey) {
+
                         #Retrieve an array of strings containing all the subkey names
-                            $subkeys = $regkey.GetSubKeyNames()
+                        $subkeys = $regkey.GetSubKeyNames()
 
                         #Open each Subkey and use GetValue Method to return the required values for each
-                            foreach($key in $subkeys)
-                            {
+                        foreach ($key in $subkeys) {
 
-                                #Build the full path to the key for this software
-                                    $thisKey = $UninstallKey+"\\"+$key 
-                            
-                                #Open the subkey for this software
-                                    $thisSubKey = $null
-                                    $thisSubKey=$reg.OpenSubKey($thisKey)
-                            
-                                #If the subkey exists
-                                if($thisSubKey){
-                                    try
-                                    {
-                            
-                                        #Get the display name.  If this is not empty we know there is information to show
-                                            $dispName = $thisSubKey.GetValue("DisplayName")
-                                
-                                        #Get the publisher name ahead of time to allow filtering using Publisher parameter
-                                            $pubName = $thisSubKey.GetValue("Publisher")
+                            #Build the full path to the key for this software
+                            $thisKey = $UninstallKey + "\\" + $key
 
-                                        #Collect subset of values from the key if there is a displayname
-                                        #Filter by displayname and publisher if specified
-                                        if( $dispName -and
-                                            (-not $DisplayName -or $dispName -match $DisplayName ) -and
-                                            (-not $Publisher -or $pubName -match $Publisher )
-                                        )
-                                        {
+                            #Open the subkey for this software
+                            $thisSubKey = $null
+                            $thisSubKey = $reg.OpenSubKey($thisKey)
 
-                                            #Display the output object, compatible with PowerShell 2
-                                            New-Object PSObject -Property @{
-                                                ComputerName = $computer
-                                                DisplayName = $dispname
-                                                Publisher = $pubName
-                                                Version = $thisSubKey.GetValue("DisplayVersion")
-                                                UninstallString = $thisSubKey.GetValue("UninstallString") 
-                                                InstallDate = $thisSubKey.GetValue("InstallDate")
-                                            } | select ComputerName, DisplayName, Publisher, Version, UninstallString, InstallDate
-                                        }
-                                    }
-                                    Catch
-                                    {
-                                        #Error with one specific subkey, continue to the next
-                                        Write-Error "Unknown error: $_"
-                                        Continue
+                            #If the subkey exists
+                            if ($thisSubKey) {
+                                try {
+
+                                    #Get the display name.  If this is not empty we know there is information to show
+                                    $dispName = $thisSubKey.GetValue("DisplayName")
+
+                                    #Get the publisher name ahead of time to allow filtering using Publisher parameter
+                                    $pubName = $thisSubKey.GetValue("Publisher")
+
+                                    #Collect subset of values from the key if there is a displayname
+                                    #Filter by displayname and publisher if specified
+                                    if ( $dispName -and
+                                        (-not $DisplayName -or $dispName -match $DisplayName ) -and
+                                        (-not $Publisher -or $pubName -match $Publisher )
+                                    ) {
+
+                                        #Display the output object, compatible with PowerShell 2
+                                        New-Object PSObject -Property @{
+                                            ComputerName    = $computer
+                                            DisplayName     = $dispname
+                                            Publisher       = $pubName
+                                            Version         = $thisSubKey.GetValue("DisplayVersion")
+                                            UninstallString = $thisSubKey.GetValue("UninstallString")
+                                            InstallDate     = $thisSubKey.GetValue("InstallDate")
+                                        } | select ComputerName, DisplayName, Publisher, Version, UninstallString, InstallDate
                                     }
                                 }
+                                Catch {
+                                    #Error with one specific subkey, continue to the next
+                                    Write-Error "Unknown error: $_"
+                                    Continue
+                                }
                             }
+                        }
                     }
                 }
-                Catch
-                {
+                Catch {
 
                     #Write verbose output if we couldn't open the uninstall key
                     Write-Verbose "Could not open key '$uninstallkey' on computer '$computer': $_"
 
                     #If we see an access denied message, let the user know and provide details, continue to the next computer
-                    if($_ -match "Requested registry access is not allowed"){
+                    if ($_ -match "Requested registry access is not allowed") {
                         Write-Error "Registry access to $computer denied.  Check your permissions.  Details: $_"
                         continue computerLoop
                     }
-                    
+
                 }
             }
         }
