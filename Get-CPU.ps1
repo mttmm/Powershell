@@ -1,4 +1,4 @@
-﻿<#
+﻿<
 $CPUPercent = @{
 Name = 'CPUPercent'
 Expression = {
@@ -8,13 +8,13 @@ $TotalSec = (New-TimeSpan -Start $_.StartTime).TotalSeconds
 }
 
 
-Get-Process -ComputerName $env:computername | 
+Get-Process -ComputerName $env:computername |
 Select-Object -Property Name, CPU, $CPUPercent, Description |
 Sort-Object -Property CPUPercent -Descending |
 Select-Object -First 5 |format-table -autosize | out-file C:\Temp\top5.log -Append
 
-Write-Output "List top 5 processes end time $(Get-Date)" | out-file C:\Temp\top5.log -Append 
-#>
+Write-Output "List top 5 processes end time $(Get-Date)" | out-file C:\Temp\top5.log -Append
+>
 
 
 
