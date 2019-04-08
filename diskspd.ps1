@@ -1,0 +1,2 @@
+﻿$date = ((Get-Date -Format dMMMyy).ToString()) + "-" + ((get-date -Format hhmm).ToString())
+G:\DiskSpd-2.0.21a\amd64\Diskspd.exe -b8K -d180 -h -L -o2 -t4 -r -w30 -c150M g:\iotest\iotest.dat | out-file "G:\iotest\output\$date.txt"
