@@ -1,0 +1,53 @@
+#########################
+# Window, Path and Help #
+#########################
+# Set the Path
+Set-Location -Path C:\projects
+# Refresh Help
+Start-Job -Name "UpdateHelp" -ScriptBlock { Update-Help -Force } | Out-null
+Write-Host "Updating Help in background (Get-Help to check)" -ForegroundColor 'DarkGray'
+Start-Job -Name "UpdatePowerCLI" -ScriptBlock { update-module VMware.powerCLI -Force } | Out-null
+Write-Host "Updating VMware PowerCLI in background" -ForegroundColor 'DarkGray'
+# Show PS Version and date/time
+set-executionpolicy Unrestricted process -Force
+Write-host "PowerShell Version: $($psversiontable.psversion) - ExecutionPolicy: $(Get-ExecutionPolicy)" -for yellow
+#display date and time in window
+#$Host.UI.RawUI.WindowTitle = Get-Date -UFormat "%Y/%m/%d %R"
+
+
+#Get-Command -Module Microsoft*,Cim*,PS*,ISE | Get-Random | Get-Help -ShowWindow
+#Get-Random -input (Get-Help about*) | Get-Help -ShowWindow
+
+
+
+#Start-Transcript -Path C:\Temp\transcript.txt -noclobber
+
+#load functions
+
+#set openssl environment variables
+#$env:path = "$env:path;C:\OpenSSL-Win64\bin"
+#'$env:OPENSSL_CONF = "C:\certs\openssl.cnf"
+function Test-Administrator {
+    $user = [Security.Principal.WindowsIdentity]::GetCurrent()
+    (New-Object Security.Principal.WindowsPrincipal $user).IsInRole([Security.Principal.WindowsBuiltinRole]::Administrator)
+}
+
+function Start-PsElevatedSession {
+    # Open a new elevated powershell window
+    if (!(Test-Administrator)) {
+        if ($host.Name -match 'ISE') {
+            start PowerShell_ISE.exe -Verb runas
+        } else {
+            start powershell -Verb runas -ArgumentList $('-noexit ' + ($args | Out-String))
+        }
+    } else {
+        Write-Warning 'Session is already elevated'
+    }
+}
+
+$MajorVersion = $PSVersionTable.PSVersion.Major
+    $MinorVersion = $PSVersionTable.PSVersion.Minor
+
+ $host.UI.RawUI.WindowTitle = "PowerShell v$MajorVersion.$MinorVersion $ShellBits | $env:USERNAME@$env:USERDNSDOMAIN | $env:COMPUTERNAME | $env:LOGONSERVER"
+New-Alias -Name npp -Value "C:\Program Files (x86)\Notepad++\notepad++.exe"
+ Start-Transcript -Path ~\Documents\WindowsPowerShell\Transcripts\$Date.log
