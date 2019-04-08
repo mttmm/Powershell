@@ -18,7 +18,7 @@ Write-Host "PowerShell Version: $($psversiontable.psversion) - ExecutionPolicy: 
 
 
 #Alias
-    New-Alias -Name npp -Value "C:\Program Files (x86)\Notepad++\notepad++.exe"
+    New-Alias -Name npp -Value "C:\Program Files\Notepad++\notepad++.exe"
 
 
 #load functions
