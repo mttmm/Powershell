@@ -1,6 +1,7 @@
 #########################
 # Window, Path and Help #
 #########################
+$Date = ((Get-Date -Format dMMMyy).ToString()) + "-" + ((get-date -Format hhmm).ToString())
 # Set the Path
 Set-Location -Path C:\projects
 # Refresh Help
@@ -14,11 +15,11 @@ Write-Host "PowerShell Version: $($psversiontable.psversion) - ExecutionPolicy: 
 
 
 # Transcript
-  Start-Transcript -Path ~\Documents\WindowsPowerShell\Transcripts\$Date.log
+Start-Transcript -Path ~\Documents\WindowsPowerShell\Transcripts\$Date.log
 
 
 #Alias
-    New-Alias -Name npp -Value "C:\Program Files\Notepad++\notepad++.exe"
+New-Alias -Name npp -Value "C:\Program Files\Notepad++\notepad++.exe"
 
 
 #load functions
@@ -46,4 +47,3 @@ $MajorVersion = $PSVersionTable.PSVersion.Major
 $MinorVersion = $PSVersionTable.PSVersion.Minor
 
 $host.UI.RawUI.WindowTitle = "PowerShell v$MajorVersion.$MinorVersion $ShellBits | $env:USERNAME@$env:USERDNSDOMAIN | $env:COMPUTERNAME | $env:LOGONSERVER"
-
