@@ -1,0 +1,21 @@
+{
+    // Basic Settings
+    "sync.gist": "0539481f4f9f57442a813e639fcd0c3c3a7e3c4d",
+    "workbench.iconTheme": "vscode-icons",
+    "extensions.autoUpdate": true,
+    "workbench.startupEditor": "newUntitledFile",
+    "window.zoomLevel": 0,
+    "files.autoSave": "afterDelay",
+    // Powershell
+    "files.defaultLanguage": "powershell",
+    "powershell.scriptAnalysis.enable": true,
+    "powershell.codeFolding.enable": true,
+    "powershell.integratedConsole.focusConsoleOnExecute": false,
+    "powershell.enableProfileLoading": true,
+    "powershell.startAutomatically": true,
+    "powershell.codeFormatting.ignoreOneLineBlock": true,
+    "powershell.codeFormatting.openBraceOnSameLine": true,
+    "files.associations": {
+        "*.ps1xml": "xml"
+    }
+}
